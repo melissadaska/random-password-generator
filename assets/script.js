@@ -11,14 +11,14 @@ function charCount() {
     passwordLength = parseInt(passwordLength);
     if(passwordLength >= 8 &&
       passwordLength <= 128) {
-        alert("Length of password is accepted as " + passwordLength + ".");
+        alert("Length of password is accepted as " + passwordLength + " characters.");
         isLengthValid = true;
-    } else if(passwordLength = null) {
-      // TODO - Investigate window prompt cancel
-      alert("User clicked cancel");
+    // } else if(passwordLength = null) {
+    //   // TODO - Investigate window prompt cancel
+    //   alert("User clicked cancel");
       break;
     } else {
-      alert("Invalid password length of " + passwordLength + ". Please provide password length of at least 8 characters long and no more than 128 characters.")
+      alert("Invalid password length. Please provide password length of at least 8 characters long and no more than 128 characters.")
     }
   }
   
@@ -30,10 +30,11 @@ function createPassword(passwordLength, typeChoices) {
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numeric = "0123456789";
-  var special = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var special = " !#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-  for (var i=0; i < passwordLength; i++) { 
+  for (var i=0; i < passwordLength; i++) {
     var item = typeChoices[Math.floor(Math.random() * typeChoices.length)];
+    
     switch (item) {
       case 1: // concat lowercase to password
         password += lowercase[Math.floor(Math.random() * lowercase.length)];
@@ -45,13 +46,13 @@ function createPassword(passwordLength, typeChoices) {
         password += numeric[Math.floor(Math.random() * numeric.length)];
         break;
       case 4: // concat special char to password
-        password += special[Math.floor(math.random() * special.length)];
+        password += special[Math.floor(Math.random() * special.length)];
         break;
       default:
         break;
     }
-
   }
+
   return password;
 
 }
@@ -59,94 +60,137 @@ function createPassword(passwordLength, typeChoices) {
 function charType(passwordLength) {
   // switch statement based on charType selected
   // generate appropriate password based on charType
-  var typeSelection = window.prompt(
-    "Please select a number from the following selection: \n" +
-    "1: lowercase \n" +
-    "2: uppercase \n" +
-    "3: numeric \n" +
-    "4: special characters \n" +
-    "5: lowercase + uppercase \n" +
-    "6: lowercase + numeric \n" +
-    "7: lowercase + special char \n" +
-    "8: uppercase + numeric \n" +
-    "9: uppercase + special char \n" +
-    "10: numeric + special char \n" +
-    "11: lowercase + uppercase + numeric \n" +
-    "12: lowercase + uppercase + special char \n" +
-    "13: lowercase + numeric + special char \n" +
-    "14: uppercase + numeric + special char \n" +
-    "15: lowercase + uppercase + numeric + special char \n"
-  );
 
-  typeSelection = parseInt(typeSelection);
-  // use switch to carry out action
-  switch (typeSelection) {
+  var type1 = "1: lowercase";
+  var type2 = "2: uppercase";
+  var type3 = "3: numeric";
+  var type4 = "4: special characters";
+  var type5 = "5: lowercase + uppercase";
+  var type6 = "6: lowercase + numeric";
+  var type7 = "7: lowercase + special character";
+  var type8 = "8: uppercase + numeric";
+  var type9 = "9: uppercase + special character";
+  var type10 = "10: numeric + special character";
+  var type11 = "11: lowercase + uppercase + numeric";
+  var type12 = "12: lowercase + uppercase + special character";
+  var type13 = "13: lowercase + numeric + special character";
+  var type14 = "14: uppercase + numeric + special character";
+  var type15 = "15: lowercase + uppercase + numeric + special character";
+
+  var isCharType = false;
+
+  while(isCharType === false) {
+    var typeCode = window.prompt(
+      "Please select a number from the following selection: \n" +
+      type1 + "\n" +
+      type2 + "\n" +
+      type3 + "\n" +
+      type4 + "\n" +
+      type5 + "\n" +
+      type6 + "\n" +
+      type7 + "\n" +
+      type8 + "\n" +
+      type9 + "\n" +
+      type10 + "\n" +
+      type11 + "\n" +
+      type12 + "\n" +
+      type13 + "\n" +
+      type14 + "\n" +
+      type15 + "\n"
+    );
+
+    // if typeSelection is not 1-15, inform user and prompt again
+    typeSelection = parseInt(typeCode);
+
+    // THIS SHOULD BE REPLACED BY THE SWITCH DEFAULT
+    if (typeSelection < 1 || typeSelection > 15) {
+      alert("Invalid response of " + typeSelection + " . Please choose a response between 1-15.");
+      continue;
+    } else {
+      isCharType = true;
+    }
+
+    // use switch to carry out action
+    switch (typeSelection) {
       case 1: // lowercase
-          var typeChoices = [1];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type1);
+        var typeChoices = [1];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 2: // uppercase
-          var typeChoices = [2];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type2);
+        var typeChoices = [2];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 3: // numeric
-          var typeChoices = [3];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type3);
+        var typeChoices = [3];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 4: // special characters
-          var typeChoices = [4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type4);
+        var typeChoices = [4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 5: // lowercase + uppercase
-          var typeChoices = [1, 2];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type5);
+        var typeChoices = [1, 2];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 6: // lowercase + numeric
-          var typeChoices = [1, 3];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type6);
+        var typeChoices = [1, 3];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 7: // lowercase + special char
-          var typeChoices = [1, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type7);
+        var typeChoices = [1, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 8: // uppercase + numeric
-          var typeChoices = [2, 3];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type8);
+        var typeChoices = [2, 3];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 9: // uppercase + special char
-          var typeChoices = [2, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type9);
+        var typeChoices = [2, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 10: // numeric + special char
-          var typeChoices = [3, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type10);
+        var typeChoices = [3, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 11: // lowercase + uppercase + numeric
-          var typeChoices = [1, 2, 3];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type11);
+        var typeChoices = [1, 2, 3];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 12: // lowercase + uppercase + special char
-          var typeChoices = [1, 2, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type12);
+        var typeChoices = [1, 2, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 13: // lowercase + numeric + special char
-          var typeChoices = [1, 3, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type13);
+        var typeChoices = [1, 3, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 14: // uppercase + numeric + special char
-          var typeChoices = [2, 3, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type14);
+        var typeChoices = [2, 3, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       case 15: // lowercase + uppercase + numeric + special char
-          var typeChoices = [1, 2, 3, 4];
-          password = createPassword(passwordLength, typeChoices);
-          break;
+        alert("You have selected " + type15);
+        var typeChoices = [1, 2, 3, 4];
+        password = createPassword(passwordLength, typeChoices);
+        break;
       default:
-          window.alert("You did not pick a valid option. Try again.")
-
-          // call charType again to force player to pick a valid option
-          charType();
-          break;
+        window.alert("Invalid response of " + typeSelection + " . Please choose a response between 1-15.");
+        continue;
+    }
   }
   return password;
 }

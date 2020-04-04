@@ -68,52 +68,66 @@ function charType(passwordLength) {
           password = createPassword(passwordLength, typeChoices);
           break;
       case 2: // uppercase
-          playerInfo.upgradeAttack();
+          var typeChoices = [2];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 3: // numeric
-          window.alert("Leaving the store.");
+          var typeChoices = [3];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 4: // special characters
-          playerInfo.refillHealth();
+          var typeChoices = [4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 5: // lowercase + uppercase
-          playerInfo.upgradeAttack();
+          var typeChoices = [1, 2];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 6: // lowercase + numeric
-          window.alert("Leaving the store.");
+          var typeChoices = [1, 3];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 7: // lowercase + special char
-          playerInfo.refillHealth();
+          var typeChoices = [1, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 8: // uppercase + numeric
-          playerInfo.upgradeAttack();
+          var typeChoices = [2, 3];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 9: // uppercase + special char
-          window.alert("Leaving the store.");
+          var typeChoices = [2, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 10: // numeric + special char
-          playerInfo.refillHealth();
+          var typeChoices = [3, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 11: // lowercase + uppercase + numeric
-          playerInfo.upgradeAttack();
+          var typeChoices = [1, 2, 3];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 12: // lowercase + uppercase + special char
-          window.alert("Leaving the store.");
+          var typeChoices = [1, 2, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 13: // lowercase + numeric + special char
-          playerInfo.refillHealth();
+          var typeChoices = [1, 3, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 14: // uppercase + numeric + special char
-          playerInfo.refillHealth();
+          var typeChoices = [2, 3, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       case 15: // lowercase + uppercase + numeric + special char
-          playerInfo.refillHealth();
+          var typeChoices = [1, 2, 3, 4];
+          password = createPassword(passwordLength, typeChoices);
           break;
       default:
           window.alert("You did not pick a valid option. Try again.")
 
-          // call shop() again to force player to pick a valid option
-          shop();
+          // call charType again to force player to pick a valid option
+          charType();
           break;
   }
   return password;

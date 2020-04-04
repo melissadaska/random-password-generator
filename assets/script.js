@@ -60,7 +60,22 @@ function charType(passwordLength) {
   // switch statement based on charType selected
   // generate appropriate password based on charType
   var typeSelection = window.prompt(
-    "Please select a number from the following selection: "
+    "Please select a number from the following selection: \n" +
+    "1: lowercase \n" +
+    "2: uppercase \n" +
+    "3: numeric \n" +
+    "4: special characters \n" +
+    "5: lowercase + uppercase \n" +
+    "6: lowercase + numeric \n" +
+    "7: lowercase + special char \n" +
+    "8: uppercase + numeric \n" +
+    "9: uppercase + special char \n" +
+    "10: numeric + special char \n" +
+    "11: lowercase + uppercase + numeric \n" +
+    "12: lowercase + uppercase + special char \n" +
+    "13: lowercase + numeric + special char \n" +
+    "14: uppercase + numeric + special char \n" +
+    "15: lowercase + uppercase + numeric + special char \n"
   );
 
   typeSelection = parseInt(typeSelection);

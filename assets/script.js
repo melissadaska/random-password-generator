@@ -8,7 +8,7 @@ function charCount() {
     var passwordLength = window.prompt('Choose a password length between 8 and 128 characters.');
 
     // if length is not within valid range, inform user and prompt again
-    if(passwordLength >= 8 ||
+    if(passwordLength >= 8 &&
       passwordLength <= 128) {
         alert("Length of password is accepted as " + passwordLength + ".");
         isLengthValid = true;

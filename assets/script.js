@@ -40,10 +40,13 @@ function createPassword(passwordLength, typeChoices) {
         break;
       case 2: // concat uppercase to password
         password += uppercase[Math.floor(Math.random() * uppercase.length)];
+        break;
       case 3: // concat numeric to password
         password += numeric[Math.floor(Math.random() * numeric.length)];
+        break;
       case 4: // concat special char to password
         password += special[Math.floor(math.random() * special.length)];
+        break;
       default:
         break;
     }

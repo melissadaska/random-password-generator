@@ -13,9 +13,6 @@ function charCount() {
       passwordLength <= 128) {
         alert("Length of password is accepted as " + passwordLength + " characters.");
         isLengthValid = true;
-    // } else if(passwordLength = null) {
-    //   // TODO - Investigate window prompt cancel
-    //   alert("User clicked cancel");
       break;
     } else {
       alert("Invalid password length. Please provide password length of at least 8 characters long and no more than 128 characters.")
@@ -34,7 +31,7 @@ function createPassword(passwordLength, typeChoices) {
 
   for (var i=0; i < passwordLength; i++) {
     var item = typeChoices[Math.floor(Math.random() * typeChoices.length)];
-    
+
     switch (item) {
       case 1: // concat lowercase to password
         password += lowercase[Math.floor(Math.random() * lowercase.length)];
@@ -103,11 +100,11 @@ function charType(passwordLength) {
     typeSelection = parseInt(typeCode);
 
     // THIS SHOULD BE REPLACED BY THE SWITCH DEFAULT
-    if (typeSelection < 1 || typeSelection > 15) {
+    if (typeSelection >= 1 && typeSelection <= 15) {
+      isCharType = true;
+    } else {
       alert("Invalid response of " + typeSelection + " . Please choose a response between 1-15.");
       continue;
-    } else {
-      isCharType = true;
     }
 
     // use switch to carry out action

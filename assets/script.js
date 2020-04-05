@@ -7,6 +7,10 @@ function charCount() {
     // ask user how many characters they want their password
     var passwordLength = window.prompt('Choose a password length between 8 and 128 characters.');
 
+    if (passwordLength === null) {
+      return null;
+    }
+
     // if length is not within valid range, inform user and prompt again
     passwordLength = parseInt(passwordLength);
     if(passwordLength >= 8 &&
@@ -95,6 +99,10 @@ function charType(passwordLength) {
       type14 + "\n" +
       type15 + "\n"
     );
+    
+    if (typeCode === null) {
+      return null;
+    }
 
     // if typeSelection is not 1-15, inform user and prompt again
     typeSelection = parseInt(typeCode);
@@ -194,7 +202,13 @@ function charType(passwordLength) {
 
 function generatePassword() {
   var passwordLength = charCount();
+  if (passwordLength === null) {
+    return null;
+  }
   var password = charType(passwordLength);
+  if (password === null) {
+    return null;
+  }
   return password;
 }
 
@@ -205,9 +219,11 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  if (password === null) {
+    passwordText.value = "User cancelled during prompt.";
+  } else {
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button

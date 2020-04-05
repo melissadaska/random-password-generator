@@ -30,6 +30,7 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Card Box Styles */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -72,6 +73,7 @@ header {
   clear: both;
 }
 
+/* Generate Password Button */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -97,6 +99,7 @@ button[disabled] {
   float: right;
 }
 
+/* Password Text Box */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -118,6 +121,7 @@ button[disabled] {
   overflow: hidden;
 }
 
+/* MEDIA QUERIES */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;

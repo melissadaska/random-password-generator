@@ -3,21 +3,24 @@
 function charCount() {
   var isLengthValid = false;
 
+  // continue loop until length is valid
   while(isLengthValid === false) {
     // ask user how many characters they want their password
     var passwordLength = window.prompt('Choose a password length between 8 and 128 characters.');
 
+    // if password === null, exit out of window
     if (passwordLength === null) {
       return null;
     }
 
-    // if length is not within valid range, inform user and prompt again
+    // if length is within valid range, continue
     passwordLength = parseInt(passwordLength);
     if(passwordLength >= 8 &&
       passwordLength <= 128) {
         alert("Length of password is accepted as " + passwordLength + " characters.");
         isLengthValid = true;
       break;
+      // if length is not within valid range, inform user and prompt again
     } else {
       alert("Invalid password length. Please provide password length of at least 8 characters long and no more than 128 characters.")
     }
@@ -26,6 +29,7 @@ function charCount() {
   return passwordLength;
 }
 
+// create variables for password character choices
 function createPassword(passwordLength, typeChoices) {
   password = "";
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -58,9 +62,8 @@ function createPassword(passwordLength, typeChoices) {
 
 }
 
+// generate appropriate password based on charType
 function charType(passwordLength) {
-  // switch statement based on charType selected
-  // generate appropriate password based on charType
 
   var type1 = "1: lowercase";
   var type2 = "2: uppercase";
@@ -80,6 +83,7 @@ function charType(passwordLength) {
 
   var isCharType = false;
 
+  // prompt user to select one of the following options
   while(isCharType === false) {
     var typeCode = window.prompt(
       "Please select a number from the following selection: \n" +
@@ -100,16 +104,17 @@ function charType(passwordLength) {
       type15 + "\n"
     );
     
+    // if no response is entered, exit ouf of window
     if (typeCode === null) {
       return null;
     }
 
-    // if typeSelection is not 1-15, inform user and prompt again
+    // if typeSelection is a number between 1-15, continue
     typeSelection = parseInt(typeCode);
 
-    // THIS SHOULD BE REPLACED BY THE SWITCH DEFAULT
     if (typeSelection >= 1 && typeSelection <= 15) {
       isCharType = true;
+      // if typeSelection is not 1-15, ask user to select a number between 1-15
     } else {
       alert("Invalid response of " + typeSelection + " . Please choose a response between 1-15.");
       continue;
@@ -200,6 +205,7 @@ function charType(passwordLength) {
   return password;
 }
 
+// Generate password based on all factors
 function generatePassword() {
   var passwordLength = charCount();
   if (passwordLength === null) {
@@ -219,8 +225,10 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  // if no password was selected, write user cancelled during prompt in text box
   if (password === null) {
     passwordText.value = "User cancelled during prompt.";
+  // otherwise copy password into text box
   } else {
     passwordText.value = password;
   }
